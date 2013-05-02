@@ -1,5 +1,6 @@
 package kr.ac.mju.mmdm;
 
+import kr.ac.mju.mmdm.member.UserActivity;
 import kr.ac.mju.mmdm.notuser.NotUserActivity;
 import android.app.Activity;
 import android.content.Intent;
@@ -53,7 +54,9 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				Intent i = new Intent(getBaseContext(), UserActivity.class); //서버연동 전 이라 일단 기능구현 먼저
+				i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(i);
 			}
 			
 		});
