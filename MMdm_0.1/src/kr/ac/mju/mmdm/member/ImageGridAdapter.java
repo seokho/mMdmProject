@@ -21,6 +21,7 @@ public class ImageGridAdapter extends BaseAdapter {
 			R.drawable.ic_launcher,
 			R.drawable.ic_launcher,
 			R.drawable.ic_launcher,
+			R.drawable.ic_launcher,
 	};
 	
 	public ImageGridAdapter(Context c){

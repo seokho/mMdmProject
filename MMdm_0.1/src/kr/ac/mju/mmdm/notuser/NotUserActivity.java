@@ -1,6 +1,7 @@
 package kr.ac.mju.mmdm.notuser;
 
 import kr.ac.mju.mmdm.R;
+import kr.ac.mju.mmdm.appdel.AppDeleteActivity;
 import kr.ac.mju.mmdm.appinstall.AppInstallActivity;
 import kr.ac.mju.mmdm.deviceinfo.DeviceInfoActivity;
 import kr.ac.mju.mmdm.locker.LockerActivity;
@@ -41,16 +42,19 @@ public class NotUserActivity extends Activity{
 				}else if(position == 1){
 					Intent intent = new Intent(NotUserActivity.this, ResetActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 2){
 					Intent intent = new Intent(NotUserActivity.this, AppInstallActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 3){
+					Intent intent = new Intent(NotUserActivity.this, AppDeleteActivity.class);
+					startActivity(intent);
+				}else if(position == 4){
 					Intent intent = new Intent(NotUserActivity.this, LockerActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 5){
 					Intent intent = new Intent(NotUserActivity.this, DeviceInfoActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 6){
 					Intent intent = new Intent(NotUserActivity.this, NetworkActivity.class);
 					startActivity(intent);
 				}

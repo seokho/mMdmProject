@@ -1,6 +1,7 @@
 package kr.ac.mju.mmdm.member;
 
 import kr.ac.mju.mmdm.R;
+import kr.ac.mju.mmdm.appdel.AppDeleteActivity;
 import kr.ac.mju.mmdm.appinstall.AppInstallActivity;
 import kr.ac.mju.mmdm.backup.BackupActivity;
 import kr.ac.mju.mmdm.deviceinfo.DeviceInfoActivity;
@@ -43,22 +44,25 @@ public class UserActivity extends Activity{
 				}else if(position == 1){
 					Intent intent = new Intent(UserActivity.this, ResetActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 2){
 					Intent intent = new Intent(UserActivity.this, AppInstallActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 3){
+					Intent intent = new Intent(UserActivity.this, AppDeleteActivity.class);
+					startActivity(intent);
+				}else if(position == 4){
 					Intent intent = new Intent(UserActivity.this, LockerActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 5){
 					Intent intent = new Intent(UserActivity.this, DeviceInfoActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 6){
 					Intent intent = new Intent(UserActivity.this, NetworkActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 7){
 					Intent intent = new Intent(UserActivity.this, LeaveActivity.class);
 					startActivity(intent);
-				}else if(position == 1){
+				}else if(position == 8){
 					Intent intent = new Intent(UserActivity.this, BackupActivity.class);
 					startActivity(intent);
 				}
