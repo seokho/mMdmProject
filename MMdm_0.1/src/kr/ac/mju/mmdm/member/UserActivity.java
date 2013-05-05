@@ -1,8 +1,10 @@
-package kr.ac.mju.mmdm.notuser;
+package kr.ac.mju.mmdm.member;
 
 import kr.ac.mju.mmdm.R;
 import kr.ac.mju.mmdm.appinstall.AppInstallActivity;
+import kr.ac.mju.mmdm.backup.BackupActivity;
 import kr.ac.mju.mmdm.deviceinfo.DeviceInfoActivity;
+import kr.ac.mju.mmdm.leave.LeaveActivity;
 import kr.ac.mju.mmdm.locker.LockerActivity;
 import kr.ac.mju.mmdm.network.NetworkActivity;
 import kr.ac.mju.mmdm.reset.ResetActivity;
@@ -15,7 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
-public class NotUserActivity extends Activity{
+public class UserActivity extends Activity{
 	
 	private int[] imageIDs = new int[] {
 			R.drawable.ic_launcher,
@@ -36,22 +38,28 @@ public class NotUserActivity extends Activity{
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				// TODO Auto-generated method stub
 				if (position == 0 ){
-					Intent intent = new Intent(NotUserActivity.this, TaskManagerActivity.class);
+					Intent intent = new Intent(UserActivity.this, TaskManagerActivity.class);
 					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(NotUserActivity.this, ResetActivity.class);
+					Intent intent = new Intent(UserActivity.this, ResetActivity.class);
 					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(NotUserActivity.this, AppInstallActivity.class);
+					Intent intent = new Intent(UserActivity.this, AppInstallActivity.class);
 					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(NotUserActivity.this, LockerActivity.class);
+					Intent intent = new Intent(UserActivity.this, LockerActivity.class);
 					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(NotUserActivity.this, DeviceInfoActivity.class);
+					Intent intent = new Intent(UserActivity.this, DeviceInfoActivity.class);
 					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(NotUserActivity.this, NetworkActivity.class);
+					Intent intent = new Intent(UserActivity.this, NetworkActivity.class);
+					startActivity(intent);
+				}else if(position == 1){
+					Intent intent = new Intent(UserActivity.this, LeaveActivity.class);
+					startActivity(intent);
+				}else if(position == 1){
+					Intent intent = new Intent(UserActivity.this, BackupActivity.class);
 					startActivity(intent);
 				}
 				
