@@ -20,11 +20,12 @@ public final class R {
         public static final int gridview=0x7f07000c;
         public static final int id=0x7f070005;
         public static final int imageView=0x7f070001;
+        public static final int killbtn=0x7f07000d;
         public static final int login=0x7f070007;
         public static final int login_form=0x7f070004;
         public static final int login_status=0x7f070002;
         public static final int login_status_message=0x7f070003;
-        public static final int menu_forgot_password=0x7f07000d;
+        public static final int menu_forgot_password=0x7f07000e;
         public static final int nonsign_in_button=0x7f07000a;
         public static final int password=0x7f070006;
         public static final int regist_in_button=0x7f07000b;
