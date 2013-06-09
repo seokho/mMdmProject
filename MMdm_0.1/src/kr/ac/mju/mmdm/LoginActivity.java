@@ -3,7 +3,9 @@ package kr.ac.mju.mmdm;
 import kr.ac.mju.mmdm.member.UserActivity;
 import kr.ac.mju.mmdm.notuser.NotUserActivity;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -60,6 +62,7 @@ public class LoginActivity extends Activity {
 			}
 			
 		});
+		startService(new Intent("kr.ac.mju.mmdm.MdmService"));
 	}
 	
 	@Override

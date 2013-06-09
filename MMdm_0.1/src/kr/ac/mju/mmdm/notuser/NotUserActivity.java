@@ -1,10 +1,10 @@
 package kr.ac.mju.mmdm.notuser;
 
+import kr.ac.mju.mmdm.LockerActivity;
 import kr.ac.mju.mmdm.R;
 import kr.ac.mju.mmdm.appdel.AppDeleteActivity;
 import kr.ac.mju.mmdm.appinstall.AppInstallActivity;
 import kr.ac.mju.mmdm.deviceinfo.DeviceInfoActivity;
-import kr.ac.mju.mmdm.locker.LockerActivity;
 import kr.ac.mju.mmdm.network.NetworkActivity;
 import kr.ac.mju.mmdm.reset.ResetActivity;
 import kr.ac.mju.mmdm.taskmanager.TaskManagerActivity;
