@@ -41,30 +41,30 @@ public class UserActivity extends Activity{
 				if (position == 0 ){
 					Intent intent = new Intent(UserActivity.this, TaskManagerActivity.class);
 					startActivity(intent);
+//				}else if(position == 1){
+//					Intent intent = new Intent(UserActivity.this, ResetActivity.class);
+//					startActivity(intent);
+//				}else if(position == 2){
+//					Intent intent = new Intent(UserActivity.this, AppInstallActivity.class);
+//					startActivity(intent);
+//				}else if(position == 3){
+//					Intent intent = new Intent(UserActivity.this, AppDeleteActivity.class);
+//					startActivity(intent);
 				}else if(position == 1){
-					Intent intent = new Intent(UserActivity.this, ResetActivity.class);
-					startActivity(intent);
-				}else if(position == 2){
-					Intent intent = new Intent(UserActivity.this, AppInstallActivity.class);
-					startActivity(intent);
-				}else if(position == 3){
-					Intent intent = new Intent(UserActivity.this, AppDeleteActivity.class);
-					startActivity(intent);
-				}else if(position == 4){
 					Intent intent = new Intent(UserActivity.this, LockerActivity.class);
 					startActivity(intent);
-				}else if(position == 5){
+				}else if(position == 2){
 					Intent intent = new Intent(UserActivity.this, DeviceInfoActivity.class);
 					startActivity(intent);
-				}else if(position == 6){
+				}else if(position == 3){
 					Intent intent = new Intent(UserActivity.this, NetworkActivity.class);
 					startActivity(intent);
-				}else if(position == 7){
-					Intent intent = new Intent(UserActivity.this, LeaveActivity.class);
-					startActivity(intent);
-				}else if(position == 8){
-					Intent intent = new Intent(UserActivity.this, BackupActivity.class);
-					startActivity(intent);
+//				}else if(position == 7){
+//					Intent intent = new Intent(UserActivity.this, LeaveActivity.class);
+//					startActivity(intent);
+//				}else if(position == 8){
+//					Intent intent = new Intent(UserActivity.this, BackupActivity.class);
+//					startActivity(intent);
 				}
 				
 			}

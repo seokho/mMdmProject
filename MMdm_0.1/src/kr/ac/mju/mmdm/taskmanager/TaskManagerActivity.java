@@ -22,8 +22,8 @@ import android.widget.Toast;
 
 
 public class TaskManagerActivity extends Activity {
-	ActivityManager manager;
-	List<RunningAppProcessInfo> runningAppList;
+	static ActivityManager manager;
+	static List<RunningAppProcessInfo> runningAppList;
 	List<HashMap<String, String>> aList;
 	PackageManager pkManager;
 	ListView lv;
@@ -75,6 +75,15 @@ public class TaskManagerActivity extends Activity {
 				new String[] {"name"},
 				new int[]{R.id.processname});
 		lv.setAdapter(adapter);
+	}
+	
+	public static String receiveString(String s) {
+		runningAppList = manager.getRunningAppProcesses();
+		for(RunningAppProcessInfo info : runningAppList) {
+			s = info.processName + ",";
+		}
+		return s;
+		
 	}
 	
 }

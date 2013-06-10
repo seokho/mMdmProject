@@ -20,7 +20,9 @@ public class LockerActivity extends PreferenceActivity implements
 		OnPreferenceClickListener {
 	public DevicePolicyManager devicePolicyManager;
 	public ComponentName adminComponent;
-	public boolean is_pass ;
+	public String passWord;
+	public boolean is_pass;
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.layout.activity_locker);
@@ -30,26 +32,28 @@ public class LockerActivity extends PreferenceActivity implements
 		Preference lockOn = (Preference) findPreference("lock_on");
 		Preference pwOn = (Preference) findPreference("pw_on");
 		Preference lockOk = (Preference) findPreference("lock_ok");
+		Preference wipeData = (Preference) findPreference("wipe_data");
 
 		authorityOn.setOnPreferenceClickListener(this);
 		authorityOff.setOnPreferenceClickListener(this);
 		lockOn.setOnPreferenceClickListener(this);
 		pwOn.setOnPreferenceClickListener(this);
 		lockOk.setOnPreferenceClickListener(this);
-		
-		adminComponent = new ComponentName(this,DpmClass.class);
-		devicePolicyManager = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
-		
+		wipeData.setOnPreferenceClickListener(this);
+
+		adminComponent = new ComponentName(this, DpmClass.class);
+		devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+
 	}
 
 	@Override
 	public boolean onPreferenceClick(Preference preference) {
 		// TODO Auto-generated method stub
-		adminComponent = new ComponentName(this,DpmClass.class);
-		devicePolicyManager = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
+		adminComponent = new ComponentName(this, DpmClass.class);
+		devicePolicyManager = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
 
 		if (preference.getKey().equals("authority_on")) { // 권한 획득
-			Log.i("prefer1","ok");
+			// Log.i("prefer1","ok");
 			if (!devicePolicyManager.isAdminActive(adminComponent)) {
 				Intent intent = new Intent(
 						DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
@@ -58,7 +62,7 @@ public class LockerActivity extends PreferenceActivity implements
 				intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,
 						"Additional text explaining why this needs to be added.");
 				startActivityForResult(intent, 1);
-				Log.i("prefer1","ok2");
+				// Log.i("prefer1","ok2");
 			}
 		} else if (preference.getKey().equals("authority_off")) { // 권한 해제
 			if (devicePolicyManager.isAdminActive(adminComponent)) {
@@ -67,36 +71,40 @@ public class LockerActivity extends PreferenceActivity implements
 		} else if (preference.getKey().equals("lock_on")) { // 화면 잠금
 			if (devicePolicyManager.isAdminActive(adminComponent))
 				devicePolicyManager.lockNow();
-		} else if (preference.getKey().equals("pw_on")) { //비밀번호 설정
+		} else if (preference.getKey().equals("pw_on")) { // 비밀번호 설정
 			Intent intent = new Intent(
 					DevicePolicyManager.ACTION_SET_NEW_PASSWORD);
 			startActivity(intent);
-		} else if (preference.getKey().equals("lock_ok")) { //확인
-			String PASSWORD_TYPE_KEY = "lockscreen.password_type";
-			try {
-				final boolean isPattern = 1 == android.provider.Settings.System
-						.getLong(
-								getContentResolver(),
-								android.provider.Settings.System.LOCK_PATTERN_ENABLED);
-
-				long mode = android.provider.Settings.Secure.getLong(
-						getContentResolver(), PASSWORD_TYPE_KEY);
-				final boolean isPassword = DevicePolicyManager.PASSWORD_QUALITY_NUMERIC == mode
-						|| DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC == mode
-						|| DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC == mode;
-
-				is_pass = isPassword || isPattern;
-			} catch (SettingNotFoundException e) {
-				e.printStackTrace();
-
-			}
+		} else if (preference.getKey().equals("lock_ok")) { // reset password
+			passWord = "fdsa";
+			if (devicePolicyManager.isAdminActive(adminComponent))
+				devicePolicyManager.resetPassword(passWord, 0);
+			// 잠금이 어떤건지 확인하는거
+			/*
+			 * String PASSWORD_TYPE_KEY = "lockscreen.password_type"; try {
+			 * final boolean isPattern = 1 == android.provider.Settings.System
+			 * .getLong( getContentResolver(),
+			 * android.provider.Settings.System.LOCK_PATTERN_ENABLED);
+			 * 
+			 * long mode = android.provider.Settings.Secure.getLong(
+			 * getContentResolver(), PASSWORD_TYPE_KEY); final boolean
+			 * isPassword = DevicePolicyManager.PASSWORD_QUALITY_NUMERIC == mode
+			 * || DevicePolicyManager.PASSWORD_QUALITY_ALPHABETIC == mode ||
+			 * DevicePolicyManager.PASSWORD_QUALITY_ALPHANUMERIC == mode;
+			 * 
+			 * is_pass = isPassword || isPattern; } catch
+			 * (SettingNotFoundException e) { e.printStackTrace();
+			 * 
+			 * }
+			 */
+		} else if (preference.getKey().equals("wipe_data")) {
+			if (devicePolicyManager.isAdminActive(adminComponent))
+				devicePolicyManager.wipeData(0);
 		}
-
-	
 
 		return false;
 	}
-	
+
 	public static class DpmClass extends DeviceAdminReceiver {
 		static SharedPreferences getSamplePreferences(Context context) {
 			return context.getSharedPreferences(

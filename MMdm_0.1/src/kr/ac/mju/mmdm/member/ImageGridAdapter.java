@@ -13,15 +13,11 @@ public class ImageGridAdapter extends BaseAdapter {
 	private Context mContext;
 	
 	private Integer[] mThumbIds = {
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
-			R.drawable.ic_launcher,
+			R.drawable.task,
+			R.drawable.lock,
+			R.drawable.info,
+			R.drawable.network,
+	
 	};
 	
 	public ImageGridAdapter(Context c){

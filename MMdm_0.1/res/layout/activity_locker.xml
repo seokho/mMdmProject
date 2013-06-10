@@ -29,7 +29,7 @@
         <Preference
             android:key="lock_on"
             android:selectable="true"
-            android:title="잠금설정" />
+            android:title="잠금" />
 
         <Preference
             android:key="pw_on"
@@ -39,7 +39,12 @@
         <Preference
             android:key="lock_ok"
             android:selectable="true"
-            android:title="잠금 확인" />
+            android:title="초기화" />
+        
+        <Preference
+            android:key="wipe_data"
+            android:selectable="true"
+            android:title="공장 초기화" />
     </PreferenceCategory>
 
 </PreferenceScreen>

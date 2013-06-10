@@ -21,7 +21,7 @@ public class NetworkActivity extends Activity implements
 	String service;
 	WifiManager wifi;
 	Context context;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,17 +39,16 @@ public class NetworkActivity extends Activity implements
 		context = getApplicationContext();
 		airBtn.setOnCheckedChangeListener(this);
 		airBtn.setChecked(isAirplaneModeOn(context));
-
 	}
 
-	private static boolean isAirplaneModeOn(Context context) {
+	public static boolean isAirplaneModeOn(Context context) {
 
 		return Settings.System.getInt(context.getContentResolver(),
 				Settings.System.AIRPLANE_MODE_ON, 0) != 0;
 
 	}
 
-	private boolean isWifiConnected() {
+	public boolean isWifiConnected() {
 		ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (connMgr != null) {
 			NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
